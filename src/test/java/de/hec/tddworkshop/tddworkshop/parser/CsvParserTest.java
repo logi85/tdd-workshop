@@ -10,7 +10,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class CsvReaderServiceTest {
+public class CsvParserTest {
 
     private final CsvParser csvParser = new CsvParser();
 

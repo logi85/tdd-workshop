@@ -1,29 +1,23 @@
 package de.hec.tddworkshop.tddworkshop;
 
-import de.hec.tddworkshop.tddworkshop.data.Todo;
-import de.hec.tddworkshop.tddworkshop.parser.CsvParser;
-import de.hec.tddworkshop.tddworkshop.printer.ConsolePrinter;
+import de.hec.tddworkshop.tddworkshop.service.CsvProcessingService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.annotation.PostConstruct;
-import java.util.List;
 
 @SpringBootApplication
 @RequiredArgsConstructor
 public class TddWorkshopApplication {
 
-	private final CsvParser parser;
-	private final ConsolePrinter printer;
+	private final CsvProcessingService processingService;
 
 	private static String csvFile;
 
 	@PostConstruct
 	public void process() {
-			List<Todo> todos = parser.readFile(TddWorkshopApplication.csvFile);
-			printer.print(todos);
+		processingService.process(TddWorkshopApplication.csvFile);
 	}
 
 
