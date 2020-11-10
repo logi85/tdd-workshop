@@ -9,8 +9,8 @@ import java.util.List;
 @Component
 public class ConsolePrinter {
 
-  public void print(List<Todo> givenTodo) {
-    givenTodo.forEach(this::printTodo);
+  public void print(List<Todo> todos) {
+    todos.forEach(this::printTodo);
   }
 
   private void printTodo(Todo todo) {

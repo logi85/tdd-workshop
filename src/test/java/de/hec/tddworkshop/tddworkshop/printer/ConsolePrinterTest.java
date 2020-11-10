@@ -11,6 +11,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 class ConsolePrinterTest {
 
   private final ConsolePrinter printer = new ConsolePrinter();
@@ -43,7 +45,7 @@ class ConsolePrinterTest {
 
     printer.print(List.of(givenTodo));
 
-    Assertions.assertThat(outContent.toString()).isEqualTo("Aufgabe 1 [Hausaufgaben] - Mathe\n");
+    assertThat(outContent.toString()).isEqualTo("Aufgabe 1 [Hausaufgaben] - Mathe\n");
   }
 
   @Test
@@ -70,7 +72,7 @@ class ConsolePrinterTest {
 
     printer.print(List.of(givenTodo1, givenTodo2));
 
-    Assertions.assertThat(outContent.toString()).isEqualTo(
+    assertThat(outContent.toString()).isEqualTo(
             "Aufgabe 1 [Hausaufgaben] - Mathe\n" +
             "Aufgabe 2 [Einkauf] - Eier kaufen\n");
 
